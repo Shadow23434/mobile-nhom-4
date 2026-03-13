@@ -1,14 +1,15 @@
 package com.example.roomrentalmanagement
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.example.roomrentalmanagement.controller.RoomController
-import com.example.roomrentalmanagement.model.Room
 import com.google.android.material.textfield.TextInputLayout
 
 class RoomFormActivity : AppCompatActivity() {
@@ -172,11 +173,11 @@ class RoomFormActivity : AppCompatActivity() {
             RoomController.updateRoom(editPosition, room)
             Toast.makeText(this, "Cập nhật phòng thành công!", Toast.LENGTH_SHORT).show()
             val resultIntent = Intent().apply { putExtra("POSITION", editPosition) }
-            setResult(Activity.RESULT_OK, resultIntent)
+            setResult(RESULT_OK, resultIntent)
         } else {
             RoomController.addRoom(room)
             Toast.makeText(this, "Thêm phòng \"$name\" thành công!", Toast.LENGTH_SHORT).show()
-            setResult(Activity.RESULT_OK)
+            setResult(RESULT_OK)
         }
         finish()
     }
